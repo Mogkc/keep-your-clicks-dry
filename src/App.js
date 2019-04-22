@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import ScoreBar from "./components/Scorebar";
 import Image from "./components/Image";
+import imgArray from "./images.json";
 import './App.css';
 
 class App extends Component {
   state = {
-    images: [
-      { src: "https://http.cat/404", alt: "Not Found", clicked: false },
-      { src: "https://http.cat/200", alt: "OK", clicked: false },
-      { src: "https://http.cat/500", alt: "Server Error", clicked: false },
-      { src: "https://http.cat/300", alt: "Multiple Choices", clicked: false }
-    ],
+    images: imgArray,
     score: 0,
     highScore: 0
   }
@@ -54,10 +50,13 @@ class App extends Component {
   }
 
   handleLoss = () => {
-    // Reset state.images, then
-    return (this.state.score > this.state.highScore) ?
+    // Change score to zero, updating the highscore if it was beaten
+    (this.state.score > this.state.highScore) ?
       this.setState({ highScore: this.state.score, score: 0 }) :
       this.setState({ score: 0 });
+      // New game, so reset the images
+    this.state.images.forEach(img => img.clicked = false);
+    this.randomizeImages();
   }
 
   render() {
@@ -65,7 +64,7 @@ class App extends Component {
       <div>
         <ScoreBar score={this.state.score} highScore={this.state.highScore} />
         {this.state.images.map(img =>
-          <Image image={img} clickFunction={img.clicked ? this.handleLoss : this.firstClick} />
+          <Image key={img.src} image={img} clickFunction={img.clicked ? this.handleLoss : this.firstClick} />
         )}
       </div>
     );
