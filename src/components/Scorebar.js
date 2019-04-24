@@ -4,8 +4,9 @@ class ScoreBar extends Component {
     render() {
         return (
             <p>
-                Current Score: {this.props.score} | 
-                Highscore: {this.props.highScore}
+                Current Score: {this.props.score} |
+                Highscore: {this.props.highScore} |
+                Max Possible Score: {this.props.max}
             </p>
         );
     }

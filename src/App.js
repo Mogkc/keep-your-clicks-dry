@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   randomizeImages = () => {
-    // Variables we need to randomize the array
     const randomized = [];
     // Slots is the number of empty spots left in the array
     let slots = this.state.images.length;
@@ -33,7 +32,6 @@ class App extends Component {
       randomized[index] = img;
       slots--;
     });
-
 
     this.setState({ images: randomized });
   }
@@ -54,7 +52,7 @@ class App extends Component {
     (this.state.score > this.state.highScore) ?
       this.setState({ highScore: this.state.score, score: 0 }) :
       this.setState({ score: 0 });
-      // New game, so reset the images
+    // New game, so reset the images
     this.state.images.forEach(img => img.clicked = false);
     this.randomizeImages();
   }
@@ -62,7 +60,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ScoreBar score={this.state.score} highScore={this.state.highScore} />
+        <ScoreBar score={this.state.score} highScore={this.state.highScore} max={this.state.images.length} />
         {this.state.images.map(img =>
           <Image key={img.src} image={img} clickFunction={img.clicked ? this.handleLoss : this.firstClick} />
         )}
