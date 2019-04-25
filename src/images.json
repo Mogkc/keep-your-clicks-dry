@@ -1,7 +1,27 @@
 [
-      { "src": "https://http.cat/404", "alt": "Not Found", "clicked": false },
-      { "src": "https://http.cat/200", "alt": "OK", "clicked": false },
-      { "src": "https://http.cat/500", "alt": "Server Error", "clicked": false },
-      { "src": "https://http.cat/300", "alt": "Multiple Choices", "clicked": false },
-      { "src": "https://http.cat/307", "alt": "Temporary Redirect", "clicked": false }
-    ]
+    {
+        "src": "https://http.cat/404",
+        "alt": "Not Found",
+        "clicked": false
+    },
+    {
+        "src": "https://http.cat/200",
+        "alt": "OK",
+        "clicked": false
+    },
+    {
+        "src": "https://http.cat/500",
+        "alt": "Server Error",
+        "clicked": false
+    },
+    {
+        "src": "https://http.cat/300",
+        "alt": "Multiple Choices",
+        "clicked": false
+    },
+    {
+        "src": "https://http.cat/307",
+        "alt": "Temporary Redirect",
+        "clicked": false
+    }
+]
